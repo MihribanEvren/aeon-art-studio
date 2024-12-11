@@ -1,9 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg: #020617;
   --bgSoft: #2d2b42;
   --text: white;
   --textSoft: #e5e5e5;
-  --btn: #3673fd;
+  --btn: #3b0e1c;
 }
 
 * {
@@ -22,6 +26,52 @@ a {
   color: inherit;
 }
 
+@layer utilities {
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .text-30-bold {
+    @apply text-[30px] font-bold text-white;
+  }
+
+  .text-24-black {
+    @apply text-[24px] font-black text-white;
+  }
+
+  .text-20-medium {
+    @apply font-medium text-[20px] text-white;
+  }
+
+  .text-16-medium {
+    @apply font-medium text-[16px] text-white;
+  }
+
+  .text-14-normal {
+    @apply font-normal text-sm text-white;
+  }
+  .text-12-small {
+    @apply font-normal text-xs text-white;
+  }
+
+  .bodyContainer {
+    @apply w-full overflow-hidden;
+  }
+
+  .container {
+    @apply w-full mx-auto px-10 min-h-screen flex flex-col justify-between;
+  }
+
+  .neonCircle {
+    @apply absolute top-[-8%] right-[-52%] w-[60vw] h-[60vw] border-[10px] border-solid border-white rounded-full shadow-neonCircle;
+  }
+}
+
+.bodyContainer {
+  width: full;
+  overflow: hidden;
+}
+
 .container {
   width: 1536px;
   margin: auto;
@@ -31,6 +81,20 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.neonCircle {
+  position: absolute;
+  top: -8%;
+  right: -52%;
+  width: 60vw;
+  height: 60vw;
+  border: 10px solid rgba(255, 255, 255, 0.947);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.692),
+    0 0 10px rgba(255, 255, 255, 0.7), 0 0 0px rgba(255, 255, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 1536px) {
@@ -56,6 +120,9 @@ a {
     width: 768px;
     padding-left: 10px;
     padding-right: 10px;
+  }
+  .neonCircle {
+    display: none;
   }
 }
 
