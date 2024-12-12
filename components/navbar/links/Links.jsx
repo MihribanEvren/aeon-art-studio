@@ -30,8 +30,8 @@ const Links = () => {
   const isAdmin = true;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.links}>
+    <div className="w-full gap-2 flex-between">
+      <div className="flex-1 hidden md:flex-center">
         {links.map((link) => (
           <NavLink key={link.title} item={link} />
         ))}
@@ -39,21 +39,20 @@ const Links = () => {
           <NavLink item={{ title: 'Admin', path: '/admin' }} />
         )}
       </div>
-      <div className={styles.auth}>
+      <div className="hidden auth md:block">
         {session ? (
-          <button className={styles.logout}>Logout</button>
+          <button className="ml-3 p-1.5 text-center cursor-pointer font-bold">
+            Logout
+          </button>
         ) : (
           <NavLink item={{ title: 'Login', path: '/login' }} />
         )}
       </div>
-      <button
-        className={styles.menuButton}
-        onClick={() => setOpen((prev) => !prev)}
-      >
+      <button className="menu-button" onClick={() => setOpen((prev) => !prev)}>
         Menu
       </button>
       {open && (
-        <div className={styles.mobileLinks}>
+        <div className="flex-col md:hidden mobile-links flex-center">
           {links.map((link) => (
             <NavLink key={link.title} item={link} />
           ))}

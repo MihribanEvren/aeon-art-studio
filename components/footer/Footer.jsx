@@ -1,12 +1,8 @@
-import styles from './footer.module.css';
-
 const Footer = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.logo}>Aeon</div>
-      <div className={styles.text}>
-        Created by Mihri. 🌐 All rights reserved.
-      </div>
+    <div className="h-24 text-gray-400 flex-between">
+      <div className="font-bold">Aeon</div>
+      <div className="text-xs">Created by Mihri. 🌐 All rights reserved.</div>
     </div>
   );
 };
