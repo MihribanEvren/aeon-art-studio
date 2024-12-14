@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './links.module.css';
 import NavLink from './navLink/NavLink';
 
 const links = [
@@ -29,38 +28,44 @@ const Links = () => {
   const session = true;
   const isAdmin = true;
 
+  const renderLinks = () => (
+    <>
+      {links.map((link) => (
+        <NavLink key={link.title} item={link} />
+      ))}
+      {session && isAdmin && (
+        <NavLink item={{ title: 'Admin', path: '/admin' }} />
+      )}
+    </>
+  );
+
+  const renderAuth = () =>
+    session ? (
+      <button className="ml-3 p-1.5 text-center cursor-pointer font-bold">
+        Logout
+      </button>
+    ) : (
+      <NavLink item={{ title: 'Login', path: '/login' }} />
+    );
+
   return (
     <div className="w-full gap-2 flex-between">
-      <div className="flex-1 hidden md:flex-center">
-        {links.map((link) => (
-          <NavLink key={link.title} item={link} />
-        ))}
-        {session && isAdmin && (
-          <NavLink item={{ title: 'Admin', path: '/admin' }} />
-        )}
-      </div>
-      <div className="hidden auth md:block">
-        {session ? (
-          <button className="ml-3 p-1.5 text-center cursor-pointer font-bold">
-            Logout
-          </button>
-        ) : (
-          <NavLink item={{ title: 'Login', path: '/login' }} />
-        )}
-      </div>
+      {/* Desktop Links */}
+      <div className="flex-1 hidden md:flex-center">{renderLinks()}</div>
+
+      {/* Auth Link */}
+      <div className="hidden md:block">{renderAuth()}</div>
+
+      {/* Mobile Menu Button */}
       <button className="menu-button" onClick={() => setOpen((prev) => !prev)}>
         Menu
       </button>
+
+      {/* Mobile Links And Auth Link */}
       {open && (
         <div className="flex-col md:hidden mobile-links flex-center">
-          {links.map((link) => (
-            <NavLink key={link.title} item={link} />
-          ))}
-          {session ? (
-            <button className={styles.logout}>Logout</button>
-          ) : (
-            <NavLink item={{ title: 'Login', path: '/login' }} />
-          )}
+          {renderLinks()}
+          {renderAuth()}
         </div>
       )}
     </div>

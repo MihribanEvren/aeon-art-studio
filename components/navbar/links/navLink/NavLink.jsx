@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import styles from './navLink.module.css';
 import { usePathname } from 'next/navigation';
 
 const NavLink = ({ item }) => {
@@ -9,7 +8,9 @@ const NavLink = ({ item }) => {
   console.log(pathname);
   return (
     <Link
-      className={`${styles.link} ${pathname === item.path && styles.active}`}
+      className={`py-3 px-5 text-center font-medium ${
+        pathname === item.path && 'bg-[--text] text-[--bg] rounded-3xl'
+      }`}
       href={item.path}
     >
       {item.title}
