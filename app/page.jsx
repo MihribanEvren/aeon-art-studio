@@ -2,6 +2,11 @@ import Image from 'next/image';
 import NeonCircle from '@/components/ui/neonCircle/NeonCircle';
 
 const Home = () => {
+  const imageData = {
+    src: '/statue.png',
+    alt: 'Statue for Home Page',
+  };
+
   return (
     <div className="content-container">
       <div className=" text-container md:flex-1">
@@ -24,8 +29,8 @@ const Home = () => {
         <div className="cross-pattern">
           <NeonCircle />
           <Image
-            src="/statue.png"
-            alt="Statue for Home Page"
+            src={imageData.src}
+            alt={imageData.alt}
             fill
             priority
             className="object-cover hero-img"

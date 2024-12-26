@@ -72,7 +72,11 @@ a {
   }
 
   .content-container {
-    @apply flex flex-col items-center justify-center gap-20 md:flex-row md:justify-between;
+    @apply flex flex-col items-center justify-center gap-10 md:gap-20 md:flex-row md:justify-between;
+  }
+
+  .image-container {
+    @apply w-full;
   }
 
   .text-container {
@@ -95,12 +99,12 @@ a {
     @apply px-3 py-2.5 md:px-4 md:py-3.5 md:min-w-[100px] cursor-pointer border-none rounded-lg;
   }
 
-  .image-container {
-    @apply w-full;
-  }
-
   .cross-pattern {
     @apply relative min-h-[300px] sm:min-h-[400px] md:min-h-[500px];
+  }
+
+  .post {
+    @apply w-full sm:w-[48%] lg:w-[28%] xl:w-[22%] p-4 rounded-lg border-none;
   }
 
   .hero-img {
@@ -154,5 +158,10 @@ a {
     @apply lg:w-[80vw] lg:h-[80vw] lg:top-[-5%] lg:right-[-110%];
 
     @apply xl:w-[60vw] xl:h-[60vw] xl:top-[-9%] xl:right-[-42%];
+  }
+
+  .input,
+  .text-area {
+    @apply p-4 rounded-lg bg-[rgba(255,255,255,0.1)] border-none;
   }
 }
