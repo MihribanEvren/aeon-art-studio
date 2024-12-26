@@ -13,7 +13,7 @@ function PostCard() {
             className="object-cover rounded-lg"
           />
         </div>
-        <span className="absolute m-auto -rotate-90 top-1/2 -right-10 text-white-small ">
+        <span className="absolute m-auto -rotate-90 top-1/2 -right-10 text-white-small">
           26.12.2024
         </span>
       </div>
